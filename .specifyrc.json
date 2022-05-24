@@ -1,24 +1,70 @@
 {
-  "repository": "@owner/repositoryName",
-  "head": "specify",
+  "repository": "@jacobryanmorrison/okdl-specifytest",
+  "base": "staging",
+  "head": "design/specify/brand",
   "rules": [
     {
       "name": "Design Tokens / Colors",
-      "path": "assets/styles/variables/colors.css",
-      "filter":{
+      "path": "assets/styles/variables/colors.scss",
+      "filter": {
         "types": ["color"]
       },
       "parsers": [
         {
-          "name": "sort-by",
+          "name": "to-css-custom-properties",
           "options": {
-            "keys": ["name"]
+            "formatTokens": {
+              "color": "rgba"
+            },
+            "formatConfig": {
+              "selector": ":root[data-theme='light']"
+            }
           }
-        },
+        }
+      ]
+    },
+    {
+      "name": "Design Tokens",
+      "path": "assets/styles/variables/general.scss",
+      "filter": {
+        "types": ["border", "depth", "duration", "gradient", "measurement", "opacity", "shadow"]
+      },
+      "parsers": [
         {
           "name": "to-css-custom-properties"
         }
       ]
+    },
+    {
+      "name": "Assets",
+      "path": "assets/",
+      "filter": {
+        "types": ["vector"]
+      },
+      "parsers": [
+        {
+          "name": "svgo",
+          "options": {
+            "svgo": {
+              "plugins": [
+                {
+                  "removeDimensions": true
+                },
+                {
+                  "removeAttrs": {
+                    "attrs": "*:(fill|stroke)"
+                  }
+                },
+                {
+                  "addAttributesToSVGElement": {
+                    "attributes": ["width=\"1em\"", "height=\"1em\""]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
     }
   ]
 }
