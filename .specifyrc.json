@@ -1,7 +1,6 @@
 {
   "repository": "@jacobryanmorrison/okdl-specifytest",
-  "base": "staging",
-  "head": "design/specify/okdl",
+  "head": "specify",
   "rules": [
     {
       "name": "Design Tokens / Colors",
@@ -10,6 +9,14 @@
         "types": ["color"]
       },
       "parsers": [
+        {
+          "name": "to-css-custom-properties",
+          "options": {
+            "formatTokens": {
+              "color": "hsl"
+            },
+            "formatConfig": {
+              "selector": ":root[data-theme='light']"
         {
           "name": "to-css-custom-properties",
           "options": {
@@ -37,7 +44,7 @@
     },
     {
       "name": "Assets",
-      "path": "assets/",
+      "path": "assets/icons",
       "filter": {
         "types": ["vector"]
       },
