@@ -1,7 +1,7 @@
 {
   "repository": "@jacobryanmorrison/okdl-specifytest",
   "base": "staging",
-  "head": "design/specify/brand",
+  "head": "design/specify/okdl",
   "rules": [
     {
       "name": "Design Tokens / Colors",
@@ -14,7 +14,7 @@
           "name": "to-css-custom-properties",
           "options": {
             "formatTokens": {
-              "color": "rgba"
+              "color": "hsl"
             },
             "formatConfig": {
               "selector": ":root[data-theme='light']"
