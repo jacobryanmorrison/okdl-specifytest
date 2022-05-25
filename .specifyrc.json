@@ -1,6 +1,6 @@
 {
     "repository": "@okcoin/okdl-specifytest",
-    "head": "main",
+    "head": "specify",
     "rules": [
       {
         "name": "Design Tokens / Colors",
