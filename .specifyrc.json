@@ -25,6 +25,37 @@
             "name": "to-css-custom-properties"
           }
         ]
+      },
+      {
+        "name": "Assets / Icons",
+        "path": "assets/",
+        "filter": {
+          "types": ["vector"]
+        },
+        "parsers":[
+          {
+            "name": "replace-string",
+            "options": {
+              "keys": ["name"],
+              "regex": {
+                "pattern": "\\.",
+                "flags": "g"
+              },
+              "trim": true,
+              "replaceBy": "/"
+            }
+          },
+          {
+            "name": "svgo",
+            "options": {
+              "plugins": [
+                {
+                  "removeDimensions": true
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   }
