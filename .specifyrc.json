@@ -27,7 +27,7 @@
         ]
       },
       {
-        "name": "Assets / Icons",
+        "name": "Assets",
         "path": "assets/",
         "filter": {
           "types": ["vector"]
