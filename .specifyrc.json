@@ -1,6 +1,5 @@
 {
     "repository": "@okcoin/okdl-specifytest",
-    "personalAccessToken": "e4fb967b146dc35120b89ca4059bdca602f4faf8709cf528f9dbe813cd166717",
     "head": "main",
     "rules": [
       {
