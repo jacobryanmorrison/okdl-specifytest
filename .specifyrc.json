@@ -1,77 +1,31 @@
 {
-  "repository": "@jacobryanmorrison/okdl-specifytest",
-  "head": "main",
-  "rules": [
-    {
-      "name": "Design Tokens / Colors",
-      "path": "assets/styles/variables/colors.scss",
-      "filter": {
-        "types": ["color"]
-      },
-      "parsers": [
-        {
-          "name": "to-css-custom-properties",
-          "options": {
-            "formatTokens": {
-              "color": "hsl"
-            },
-            "formatConfig": {
-              "selector": ":root[data-theme='light']"
-        {
-          "name": "to-css-custom-properties",
-          "options": {
-            "formatTokens": {
-              "color": "hsl"
-            },
-            "formatConfig": {
-              "selector": ":root[data-theme='light']"
+    "repository": "@okcoin/okdl-specifytest",
+    "personalAccessToken": "e4fb967b146dc35120b89ca4059bdca602f4faf8709cf528f9dbe813cd166717",
+    "head": "main",
+    "rules": [
+      {
+        "name": "Design Tokens / Colors",
+        "path": "assets/styles/variables/colors.scss",
+        "filter": {
+          "types": ["color"]
+        },
+        "parsers": [
+          {
+            "name": "replace-string",
+            "options": {
+              "keys": ["name"],
+              "regex": {
+                "pattern": "\\.",
+                "flags": "g"
+              },
+              "trim": true,
+              "replaceBy": "-"
             }
+          },
+          {
+            "name": "to-css-custom-properties"
           }
-        }
+        ]
       }
-    },
-    {
-      "name": "Design Tokens",
-      "path": "assets/styles/variables/general.scss",
-      "filter": {
-        "types": ["border", "depth", "duration", "gradient", "measurement", "opacity", "shadow"]
-      },
-      "parsers": [
-        {
-          "name": "to-css-custom-properties"
-        }
-      ]
-    },
-    {
-      "name": "Assets",
-      "path": "assets/icons",
-      "filter": {
-        "types": ["vector"]
-      },
-      "parsers": [
-        {
-          "name": "svgo",
-          "options": {
-            "svgo": {
-              "plugins": [
-                {
-                  "removeDimensions": true
-                },
-                {
-                  "removeAttrs": {
-                    "attrs": "*:(fill|stroke)"
-                  }
-                },
-                {
-                  "addAttributesToSVGElement": {
-                    "attributes": ["width=\"1em\"", "height=\"1em\""]
-                  }
-                }
-              ]
-            }
-          }
-        }
-      ],
-    }
-  ]
-}
+    ]
+  }
